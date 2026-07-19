@@ -64,6 +64,9 @@ func _on_feet_body_entered(body: Node2D) -> void:
 			check_pos.y += 1
 		if spikes.get_cell_source_id(check_pos) != -1:
 			respawn()
+	if body == tile:
+		if tile.get_cell_atlas_coords(tile.local_to_map(tile.to_local(global_position))) == Vector2i(1,1):
+			print("STANDING ON ICE")
 
 func _on_head_body_entered(body: Node2D) -> void:
 	if body == spikes:
